@@ -1,0 +1,6 @@
+<form action="/todos/{{ todo.id }}/edit?_method=PUT" method="POST">
+  <input style="vertical-align: middle;" type="checkbox" name="isDone" {{#if todo.isDone }} checked {{/if}}>
+  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
+  <button type="submit">Save</button>
+  <a href="/">back</a>
+</form>
