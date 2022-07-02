@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
+const passport = require('./config/passport')
 const PORT = process.env.PORT || 3000
 const router = require('./routes/api/index')
 
@@ -14,6 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
 app.use((req, res, next) => {
 	res.locals.success_messages = req.flash('success_msg')
