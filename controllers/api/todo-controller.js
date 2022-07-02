@@ -1,5 +1,4 @@
-const db = require('../../models')
-const Todo = db.Todo
+const { Todo } = require('../../models')
 const { StatusCodes } = require('http-status-codes')
 
 const todoController = {
