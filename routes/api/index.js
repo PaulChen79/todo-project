@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const { generalErrorHandler } = require('../../middleware/error-handler')
+const todo = require('./modules/todos')
 
-router.get('/', (req, res) => {
-	res.send('hello')
-})
+router.use('/todos', todo)
+
+router.use('/', generalErrorHandler)
 
 module.exports = router
